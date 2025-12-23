@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizInsight Local 프레젠테이션</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+        
+        .presentation {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            padding: 60px 80px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .slide h1 {
+            font-size: 3.5em;
+            color: #2d3748;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .slide h2 {
+            font-size: 2.5em;
+            color: #4a5568;
+            margin: 30px 0 20px 0;
+            border-left: 5px solid #667eea;
+            padding-left: 20px;
+        }
+        
+        .slide h3 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin: 25px 0 15px 0;
+        }
+        
+        .slide p, .slide li {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #2d3748;
+            margin: 10px 0;
+        }
+        
+        .slide ul {
+            margin-left: 40px;
+        }
+        
+        .slide blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #4a5568;
+            font-size: 1.4em;
+        }
+        
+        .slide strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .slide code {
+            background: #f7fafc;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #e53e3e;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            background: rgba(102, 126, 234, 0.9);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-btn:hover {
+            background: rgba(118, 75, 162, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .nav-btn:disabled {
+            background: rgba(160, 174, 192, 0.5);
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(45, 55, 72, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            z-index: 1000;
+        }
+        
+        /* 키보드 단축키 안내 */
+        .shortcuts {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(45, 55, 72, 0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            opacity: 0.7;
+            z-index: 999;
+        }
+        
+        .shortcuts:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+
+        <div class="slide active" data-slide="0">
+            <h1>BizInsight Local: 소상공인을 위한 AI 비즈니스 파트너</h1>
+<blockquote><strong>MARP 프레임워크 기반 프레젠테이션 (Presentation)</strong></blockquote>
+        </div>
+
+        <div class="slide " data-slide="1">
+            <h2>1. Reason (배경 및 문제 제기)</h2>
+<strong>"왜 이 서비스가 필요한가?"</strong></p><p><h3>🚩 현실 (Reality)</h3>
+<ul><li><strong>데이터의 부재가 아닌, 활용의 부재</strong>: 수많은 소상공인(식당, 카페 등)이 POS 기기를 통해 매일 방대한 매출 데이터를 쌓고 있지만, 이를 엑셀 파일 형태로 보관만 할 뿐 실제 경영에 활용하지 못하고 있습니다.</li></ul>
+<ul><li><strong>높은 진입 장벽</strong>: 전문적인 데이터 분석 툴은 너무 어렵고, 데이터 분석가를 고용할 여력은 없습니다.</li></ul>
+<ul><li><strong>보안 우려</strong>: 매출 데이터는 민감한 정보이기에 클라우드 기반의 외부 AI 서비스(ChatGPT 등)에 섣불리 업로드하기 꺼려집니다.</li></ul></p><p><h3>🎯 기회 (Opportunity)</h3>
+<ul><li>"복잡한 설정 없이, 내 PC에서 안전하게, 전문가 수준의 인사이트를 얻을 수는 없을까?"라는 질문에서 시작했습니다.</li></ul>
+        </div>
+
+        <div class="slide " data-slide="2">
+            <h2>2. Approach (해결 방안 및 핵심 전략)</h2>
+<strong>"우리는 이 문제를 어떻게 해결하는가?"</strong></p><p><h3>💡 솔루션: BizInsight Local</h3>
+<ul><li><strong>제품 정의</strong>: 로컬 LLM(Local Large Language Model)을 활용한 <strong>PC 설치형 비즈니스 인사이트 대시보드</strong>입니다.</li></ul></p><p><h3>🔑 핵심 기능 (Key Features)</h3>
+1.  <strong>Zero-Configuration</strong>: 복잡한 설정 없이 엑셀 파일을 드래그 앤 드롭(Drag & Drop)하면 즉시 분석이 시작됩니다.
+2.  <strong>Privacy First (Local AI)</strong>: 데이터가 외부 서버로 전송되지 않습니다. Ollama와 연동하여 사용자의 로컬 환경에서 모든 분석과 추론이 이루어집니다.
+3.  <strong>Actionable Insight</strong>: 단순한 그래프 나열이 아닙니다.
+    *   *Before*: "금요일 매출 100만원"
+    *   *After*: <strong>"금요일 저녁 재고를 1.5배 더 확보하세요. 지난 3주간 금요일마다 재료 소진이 발생했습니다."</strong></p><p><h3>🛠 기술 스택 (Tech Stack)</h3>
+<ul><li><strong>Core</strong>: Python 3.9+</li></ul>
+<ul><li><strong>UI/UX</strong>: Streamlit (직관적인 인터랙티브 대시보드)</li></ul>
+<ul><li><strong>AI Engine</strong>: Ollama (Llama 3, Mistral 등 고성능 경량 모델 활용)</li></ul>
+        </div>
+
+        <div class="slide " data-slide="3">
+            <h2>3. Result (기대 효과 및 가치)</h2>
+<strong>"사용자는 무엇을 얻는가?"</strong></p><p><h3>✨ 사용자 가치 (User Value)</h3>
+<ul><li><strong>데이터 기반 의사결정</strong>: "감"에 의존하던 경영에서 벗어나, 데이터 수치에 기반한 정확한 판단이 가능해집니다.</li></ul>
+<ul><li><strong>시간 절약</strong>: 매일 장부 정리에 들이던 시간을 획기적으로 단축하고, 본업인 서비스와 품질 향상에 집중할 수 있습니다.</li></ul>
+<ul><li><strong>매출 증대</strong>: 구체적인 타임 세일 전략, 메뉴 최적화 제안 등을 통해 실질적인 매출 상승을 기대할 수 있습니다.</li></ul></p><p><h3>🔒 차별화된 강점</h3>
+<ul><li><strong>안전함</strong>: 인터넷이 끊겨도 작동하며, 내 소중한 영업 비밀이 100% 보호됩니다.</li></ul>
+<ul><li><strong>쉬움</strong>: 개발 지식이 전혀 없는 사장님도 바로 사용할 수 있는 직관성을 제공합니다.</li></ul>
+        </div>
+
+        <div class="slide " data-slide="4">
+            <h2>4. Plan (향후 계획 및 로드맵)</h2>
+<strong>"앞으로 어떻게 발전할 것인가?"</strong></p><p><h3>🚀 Roadmap</h3>
+<ul><li><strong>Phase 1 (MVP - 현재)</strong></li></ul>
+    *   CSV/Excel 파일 업로드 및 시각화 대시보드 구현.
+    *   기본적인 통계 기반 텍스트 요약 및 LLM 연동 검증.
+<ul><li><strong>Phase 2 (v1.1 - 고도화)</strong></li></ul>
+    *   여러 달의 매출 파일 병합 분석 기능 추가.
+    *   업종별(카페, 식당, 소매) 맞춤형 프롬프트 튜닝.
+<ul><li><strong>Phase 3 (v2.0 - 확장)</strong></li></ul>
+    *   <strong>예측(Forecasting)</strong>: "다음 달 예상 매출" 시계열 예측 모델 탑재.
+    *   PDF 리포트 생성 및 배포 패키지(exe) 최적화.
+        </div>
+
+        <div class="slide " data-slide="5">
+            <blockquote><strong>마무리</strong>: <strong>BizInsight Local</strong>은 소상공인의 가장 든든하고 안전한 디지털 파트너가 될 것입니다.</blockquote>
+        </div>
+
+    </div>
+    
+    <div class="shortcuts">
+        ⌨️ ←/→ : 이전/다음 슬라이드
+    </div>
+    
+    <div class="slide-counter">
+        <span id="current">1</span> / <span id="total">1</span>
+    </div>
+    
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn">← 이전</button>
+        <button class="nav-btn" id="nextBtn">다음 →</button>
+    </div>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            document.getElementById('current').textContent = currentSlide + 1;
+            
+            // 버튼 상태 업데이트
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+        
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+        
+        // 버튼 이벤트
+        document.getElementById('nextBtn').addEventListener('click', nextSlide);
+        document.getElementById('prevBtn').addEventListener('click', prevSlide);
+        
+        // 키보드 이벤트
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+        
+        // 초기 버튼 상태
+        document.getElementById('prevBtn').disabled = true;
+    </script>
+</body>
+</html>
